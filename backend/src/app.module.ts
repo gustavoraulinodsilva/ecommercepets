@@ -5,6 +5,7 @@ import { DogModule } from './dog/dog.module';
 import { BreedModule } from './breed/breed.module';
 import { BreedcarouselModule } from './breedcarousel/breedcarousel.module';
 import { DogcolorsModule } from './dogcolors/dogcolors.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -21,7 +22,8 @@ import { DogcolorsModule } from './dogcolors/dogcolors.module';
     DogModule,
     BreedModule,
     BreedcarouselModule,
-    DogcolorsModule
+    DogcolorsModule,
+    UsersModule
   ],
   controllers: [AppController],
 })
