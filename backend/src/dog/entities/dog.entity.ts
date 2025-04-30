@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Breed } from "src/breed/entities/breed.entity";
+import { Dogcolor } from "src/dogcolors/entities/dogcolor.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Dog {
@@ -6,16 +8,16 @@ export class Dog {
     id: number;
 
     @Column({nullable: false})
-    code: string;
+    sku: string;
 
-    @Column({nullable: false})
-    breed: string;
+    @ManyToOne(() => Breed, {eager: true, nullable: false})
+    breed: Breed;
 
     @Column({nullable: false})
     price: string;
 
-    @Column({nullable: false})
-    gender: string;
+    @Column({type: 'enum', enum: ['Male', 'Female'], nullable: false})
+    gender: 'Male' | 'Female';
 
     @Column({nullable: false})
     age: string;
@@ -23,8 +25,8 @@ export class Dog {
     @Column({nullable: false})
     size: string;
 
-    @Column({nullable: false})
-    color: string;
+    @ManyToOne(() => Dogcolor, {eager: true, nullable: false})
+    color: Dogcolor;
 
     @Column({default: false})
     vaccinated: boolean;

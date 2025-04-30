@@ -2,6 +2,9 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DogModule } from './dog/dog.module';
+import { BreedModule } from './breed/breed.module';
+import { BreedcarouselModule } from './breedcarousel/breedcarousel.module';
+import { DogcolorsModule } from './dogcolors/dogcolors.module';
 
 @Module({
   imports: [
@@ -15,7 +18,10 @@ import { DogModule } from './dog/dog.module';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    DogModule
+    DogModule,
+    BreedModule,
+    BreedcarouselModule,
+    DogcolorsModule
   ],
   controllers: [AppController],
 })
