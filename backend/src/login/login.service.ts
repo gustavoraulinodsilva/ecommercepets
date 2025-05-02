@@ -22,14 +22,12 @@ export class LoginService {
       if (!user) {
         throw new NotFoundException('Usuário não encontrado');
       }
-
-      // Verificar senha
+      
       const isPasswordValid = await bcrypt.compare(password, user.password);
       if (!isPasswordValid) {
         throw new UnauthorizedException('Credenciais inválidas');
       }
 
-      // Gerar token JWT
       const payload = { 
         sub: user.id,
         email: user.email 
@@ -40,7 +38,6 @@ export class LoginService {
         user: {
           id: user.id,
           email: user.email
-          // Outros campos do usuário que queira retornar (exceto a senha)
         }
       };
     } catch (error) {
@@ -55,7 +52,7 @@ export class LoginService {
   async findByEmail(email: string) {
     try {
       const user = await this.userRepository.findOne({ where: { email } });
-      return user; // Retorna null se não encontrar
+      return user;
     } catch (error) {
       console.error('Erro ao consultar o banco de dados:', error);
       throw new InternalServerErrorException('Erro ao consultar o banco de dados');

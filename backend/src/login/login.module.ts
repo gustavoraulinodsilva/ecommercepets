@@ -4,16 +4,18 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { LoginService } from './login.service';
 import { LoginController } from './login.controller';
 import { User } from 'src/users/entities/user.entity';
+import { JwtStrategy } from './auth/jwt.strategy';
+import { PassportModule } from '@nestjs/passport';
+import { jwtConfig } from 'src/config/jwt.config';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([User]),
-    JwtModule.register({
-      secret: process.env.JWT_SECRET || 'your_secret_key',
-      signOptions: { expiresIn: '1h' },
-    }),
+    PassportModule,
+    JwtModule.register(jwtConfig),
+    PassportModule.register({ defaultStrategy: 'jwt' }),
   ],
   controllers: [LoginController],
-  providers: [LoginService],
+  providers: [LoginService, JwtStrategy],
 })
 export class LoginModule {}

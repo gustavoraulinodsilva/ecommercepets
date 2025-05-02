@@ -8,6 +8,8 @@ import { DogcolorsModule } from './dogcolors/dogcolors.module';
 import { UsersModule } from './users/users.module';
 import { LoginModule } from './login/login.module';
 import { ConfigModule } from '@nestjs/config';
+import { APP_GUARD } from '@nestjs/core';
+import { LoginGuard } from './login/auth/login.guard';
 
 @Module({
   imports: [
@@ -30,5 +32,11 @@ import { ConfigModule } from '@nestjs/config';
     LoginModule
   ],
   controllers: [AppController],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: LoginGuard, // Substitua SeuGuard pelo guard que você quer utilizar
+    },
+  ],
 })
 export class AppModule {}
