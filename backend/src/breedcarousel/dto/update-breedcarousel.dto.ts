@@ -1,14 +1,34 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateBreedcarouselDto } from './create-breedcarousel.dto';
-import { IsOptional } from 'class-validator';
+import { IsNumber, IsOptional, IsString, IsUrl } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class UpdateBreedcarouselDto extends PartialType(CreateBreedcarouselDto) {
-        @IsOptional()
-        url: string;
-    
-        @IsOptional()
-        alt: string;
-    
-        @IsOptional()
-        order: number;
+    @ApiProperty({
+        description: 'The URL of the breed image',
+        example: 'https://example.com/golden-retriever.jpg',
+        required: false
+    })
+    @IsOptional()
+    @IsString()
+    @IsUrl()
+    url?: string;
+
+    @ApiProperty({
+        description: 'Alternative text for the image',
+        example: 'Golden Retriever playing in the park',
+        required: false
+    })
+    @IsOptional()
+    @IsString()
+    alt?: string;
+
+    @ApiProperty({
+        description: 'Display order in the carousel',
+        example: 1,
+        required: false
+    })
+    @IsOptional()
+    @IsNumber()
+    order?: number;
 }

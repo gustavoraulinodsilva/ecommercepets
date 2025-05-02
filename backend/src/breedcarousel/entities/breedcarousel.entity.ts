@@ -1,5 +1,6 @@
 import { UUID } from "crypto";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Breed } from "src/breed/entities/breed.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Breedcarousel {
@@ -14,4 +15,7 @@ export class Breedcarousel {
 
     @Column()
     order: number;
+
+    @ManyToOne(() => Breed, (breed) => breed.breedcarousel, { nullable: false, onDelete: 'CASCADE' })
+    breed: Breed;
 }
