@@ -15,8 +15,7 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto): Promise<User> {
-    const saltRounds = 12;
-    const hashedPassword = bcrypt.hashSync(createUserDto.password, saltRounds);
+    const hashedPassword = bcrypt.hashSync(createUserDto.password, 12);
 
     const newUser = this.usersRepository.create({
       ...createUserDto,
@@ -44,8 +43,7 @@ export class UsersService {
       throw new Error(`User with id ${id} not found`);
     }
     if(updateUserDto.password) {
-      const saltRounds = 12;
-      const hashedPassword = bcrypt.hashSync(updateUserDto.password, saltRounds);
+      const hashedPassword = bcrypt.hashSync(updateUserDto.password, 12);
       updateUserDto.password = hashedPassword;
     }
     const updatedUser = Object.assign(user, updateUserDto);
