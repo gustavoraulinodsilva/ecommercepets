@@ -4,7 +4,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 @Entity()
 export class Breedcarousel {
     @PrimaryGeneratedColumn("uuid")
-    id: UUID;
+    id: string;
 
     @Column({nullable: false})
     url: string;
@@ -13,5 +13,5 @@ export class Breedcarousel {
     alt: string;
 
     @Column()
-    sort: number;
+    order: number;
 }
