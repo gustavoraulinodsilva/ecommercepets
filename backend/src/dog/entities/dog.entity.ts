@@ -1,11 +1,11 @@
 import { Breed } from "src/breed/entities/breed.entity";
 import { Dogcolor } from "src/dogcolors/entities/dogcolor.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Dog {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn("uuid")
+    id: string;
 
     @Column({nullable: false})
     sku: string;
@@ -25,8 +25,19 @@ export class Dog {
     @Column({nullable: false})
     size: string;
 
-    @ManyToOne(() => Dogcolor, {eager: true, nullable: false})
-    color: Dogcolor;
+    @ManyToMany(() => Dogcolor, {eager: true})
+    @JoinTable({
+        name: "dog_colors",
+        joinColumn: {
+            name: "dog_id",
+            referencedColumnName: "id"
+        },
+        inverseJoinColumn: {
+            name: "color_id",
+            referencedColumnName: "id"
+        }
+    })
+    colors: Dogcolor[];
 
     @Column({default: false})
     vaccinated: boolean;
@@ -38,7 +49,7 @@ export class Dog {
     certified: boolean;
 
     @Column({default: false})
-    microship : boolean;
+    microship: boolean;
 
     @Column({nullable: false})
     localization: string;
