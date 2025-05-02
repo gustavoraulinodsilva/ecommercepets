@@ -4,7 +4,7 @@ import { UUID } from "typeorm/driver/mongodb/bson.typings";
 @Entity()
 export class Dogcolor {
     @PrimaryGeneratedColumn("uuid")
-    id: UUID;
+    id: string;
 
     @Column({nullable: false})
     name: string;

@@ -19,16 +19,16 @@ export class DogcolorsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.dogcolorsService.findOne(+id);
+    return this.dogcolorsService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateDogcolorDto: UpdateDogcolorDto) {
-    return this.dogcolorsService.update(+id, updateDogcolorDto);
+    return this.dogcolorsService.update(id, updateDogcolorDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.dogcolorsService.remove(+id);
+    return this.dogcolorsService.remove(id);
   }
 }
