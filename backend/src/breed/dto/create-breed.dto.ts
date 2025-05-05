@@ -2,6 +2,7 @@ import { Type } from "class-transformer";
 import { IsArray, IsNotEmpty, IsString, ValidateNested } from "class-validator";
 import { ApiProperty } from "@nestjs/swagger";
 import { CreateBreedcarouselDto } from "src/breedcarousel/dto/create-breedcarousel.dto";
+import { CreateBreedadoptionDto } from "src/breedadoption/dto/create-breedadoption.dto";
 
 export class CreateBreedDto {
     @ApiProperty({
@@ -34,4 +35,10 @@ export class CreateBreedDto {
     @ValidateNested({ each: true })
     @Type(() => CreateBreedcarouselDto)
     breedcarousel: CreateBreedcarouselDto[];
+
+    @ApiProperty({ type: [CreateBreedadoptionDto], required: false }) // Add this
+    @IsArray()
+    @ValidateNested({ each: true })
+    @Type(() => CreateBreedadoptionDto)
+    breedadoption?: CreateBreedadoptionDto[];
 }

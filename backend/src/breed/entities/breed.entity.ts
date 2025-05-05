@@ -1,3 +1,4 @@
+import { Breedadoption } from "src/breedadoption/entities/breedadoption.entity";
 import { Breedcarousel } from "src/breedcarousel/entities/breedcarousel.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { UUID } from "typeorm/driver/mongodb/bson.typings";
@@ -12,4 +13,7 @@ export class Breed {
 
     @OneToMany(() => Breedcarousel, (carousel) => carousel.breed, { cascade: true })
     breedcarousel: Breedcarousel[];
+
+    @OneToMany(() => Breedadoption, (adoption) => adoption.breed, { cascade: true })
+    breedadoption: Breedadoption[];
 }

@@ -10,6 +10,7 @@ import { LoginModule } from './login/login.module';
 import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { LoginGuard } from './login/auth/login.guard';
+import { BreedadoptionModule } from './breedadoption/breedadoption.module';
 
 @Module({
   imports: [
@@ -29,7 +30,8 @@ import { LoginGuard } from './login/auth/login.guard';
     BreedcarouselModule,
     DogcolorsModule,
     UsersModule,
-    LoginModule
+    LoginModule,
+    BreedadoptionModule
   ],
   controllers: [AppController],
   providers: [
