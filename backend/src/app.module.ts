@@ -13,6 +13,7 @@ import { LoginGuard } from './login/auth/login.guard';
 import { BreedadoptionModule } from './breedadoption/breedadoption.module';
 import { DogcategoryModule } from './dogcategory/dogcategory.module';
 import { ContactsModule } from './contacts/contacts.module';
+import { NewsletterModule } from './newsletter/newsletter.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { ContactsModule } from './contacts/contacts.module';
     BreedadoptionModule,
     DogcategoryModule,
     ContactsModule,
+    NewsletterModule,
   ],
   controllers: [AppController],
   providers: [
