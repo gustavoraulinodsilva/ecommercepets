@@ -1,6 +1,7 @@
 import { Breed } from "src/breed/entities/breed.entity";
+import { Dogcategory } from "src/dogcategory/entities/dogcategory.entity";
 import { Dogcolor } from "src/dogcolors/entities/dogcolor.entity";
-import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Dog {
@@ -22,8 +23,9 @@ export class Dog {
     @Column({nullable: false})
     age: string;
 
-    @Column({nullable: false})
-    size: string;
+    @ManyToOne(() => Dogcategory, category => category.dogs)
+    @JoinColumn({ name: 'category_id' })
+    category: Dogcategory;
 
     @ManyToMany(() => Dogcolor, {eager: true})
     @JoinTable({

@@ -52,13 +52,13 @@ export class UpdateDogDto extends PartialType(CreateDogDto) {
     age?: string;
 
     @ApiProperty({
-        description: 'Dog size',
-        example: 'Medium',
+        description: 'Category ID for the dog',
+        example: '123e4567-e89b-12d3-a456-426614174000',
         required: false
     })
-    @IsString()
+    @IsUUID()
     @IsOptional()
-    size?: string;
+    categoryId?: string;
 
     @ApiProperty({
         description: 'Color IDs for the dog',

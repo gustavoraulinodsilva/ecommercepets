@@ -6,6 +6,7 @@ import { UpdateDogDto } from './dto/update-dog.dto';
 import { Dog } from './entities/dog.entity';
 import { Breed } from '../breed/entities/breed.entity';
 import { Dogcolor } from '../dogcolors/entities/dogcolor.entity';
+import { Dogcategory } from 'src/dogcategory/entities/dogcategory.entity';
 
 @Injectable()
 export class DogService {
@@ -16,6 +17,8 @@ export class DogService {
     private breedRepository: Repository<Breed>,
     @InjectRepository(Dogcolor)
     private dogcolorRepository: Repository<Dogcolor>,
+    @InjectRepository(Dogcategory)
+    private dogcategoryRepository: Repository<Dogcategory>
   ) {}
 
   async create(createDogDto: CreateDogDto): Promise<Dog> {
@@ -28,22 +31,30 @@ export class DogService {
       throw new NotFoundException(`Breed with ID ${createDogDto.breedId} not found`);
     }
 
-    // Find colors by ID (not by name)
+    // Find colors by ID
     const colors = await this.dogcolorRepository.findBy({
-      id: In(createDogDto.colorIds) // Look up by ID, not by name
+      id: In(createDogDto.colorIds)
     });
 
     if (colors.length !== createDogDto.colorIds.length) {
       throw new BadRequestException('One or more colors were not found');
     }
 
-    // Create new dog instance
+    // Find the category
+    const category = await this.dogcategoryRepository.findOne({
+      where: { id: Equal(createDogDto.categoryId) }
+    });
+
+    if (!category) {
+      throw new BadRequestException(`Category with ID ${createDogDto.categoryId} not found`);
+    }
+
+    // Create new dog instance with all properties
     const dog = this.dogRepository.create({
       sku: createDogDto.sku,
       price: createDogDto.price,
       gender: createDogDto.gender,
       age: createDogDto.age,
-      size: createDogDto.size,
       vaccinated: createDogDto.vaccinated || false,
       dewormed: createDogDto.dewormed || false,
       certified: createDogDto.certified || false,
@@ -52,7 +63,8 @@ export class DogService {
       publicationDate: createDogDto.publicationDate,
       description: createDogDto.description,
       breed: breed,
-      colors: colors
+      colors: colors,
+      category: category // Set a single category
     });
 
     // Save to database
@@ -61,14 +73,14 @@ export class DogService {
 
   async findAll(): Promise<Dog[]> {
     return await this.dogRepository.find({
-      relations: ['breed','breed.breedcarousel', 'colors']
+      relations: ['breed', 'breed.breedcarousel', 'breed.breedadoption', 'colors', 'category'],
     });
   }
 
   async findOne(id: string): Promise<Dog> {
     const dog = await this.dogRepository.findOne({
       where: { id: Equal(id) },
-      relations: ['breed','breed.breedcarousel' , 'colors']
+      relations: ['breed', 'breed.breedcarousel','breed.breedadoption', 'colors', 'category'],
     });
 
     if (!dog) {
@@ -95,10 +107,10 @@ export class DogService {
       dog.breed = breed;
     }
 
-    // Update colors if provided - fixing to use colorIds instead of colorNames
+    // Update colors if provided
     if (updateDogDto.colorIds && updateDogDto.colorIds.length > 0) {
       const colors = await this.dogcolorRepository.findBy({
-        id: In(updateDogDto.colorIds) // Look up by ID, not by name
+        id: In(updateDogDto.colorIds)
       });
 
       if (colors.length !== updateDogDto.colorIds.length) {
@@ -108,13 +120,25 @@ export class DogService {
       dog.colors = colors;
     }
 
-    // Update other properties (no changes needed here)
+    // Update category if provided - using a single categoryId
+    if (updateDogDto.categoryId) {
+      const category = await this.dogcategoryRepository.findOne({
+        where: { id: Equal(updateDogDto.categoryId) }
+      });
+
+      if (!category) {
+        throw new BadRequestException(`Category with ID ${updateDogDto.categoryId} not found`);
+      }
+
+      dog.category = category;
+    }
+
+    // Update other properties
     Object.assign(dog, {
       sku: updateDogDto.sku !== undefined ? updateDogDto.sku : dog.sku,
       price: updateDogDto.price !== undefined ? updateDogDto.price : dog.price,
       gender: updateDogDto.gender !== undefined ? updateDogDto.gender : dog.gender,
       age: updateDogDto.age !== undefined ? updateDogDto.age : dog.age,
-      size: updateDogDto.size !== undefined ? updateDogDto.size : dog.size,
       vaccinated: updateDogDto.vaccinated !== undefined ? updateDogDto.vaccinated : dog.vaccinated,
       dewormed: updateDogDto.dewormed !== undefined ? updateDogDto.dewormed : dog.dewormed,
       certified: updateDogDto.certified !== undefined ? updateDogDto.certified : dog.certified,

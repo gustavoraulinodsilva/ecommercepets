@@ -11,6 +11,7 @@ import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { LoginGuard } from './login/auth/login.guard';
 import { BreedadoptionModule } from './breedadoption/breedadoption.module';
+import { DogcategoryModule } from './dogcategory/dogcategory.module';
 
 @Module({
   imports: [
@@ -31,7 +32,8 @@ import { BreedadoptionModule } from './breedadoption/breedadoption.module';
     DogcolorsModule,
     UsersModule,
     LoginModule,
-    BreedadoptionModule
+    BreedadoptionModule,
+    DogcategoryModule,
   ],
   controllers: [AppController],
   providers: [

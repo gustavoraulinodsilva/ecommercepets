@@ -5,9 +5,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Dog } from './entities/dog.entity';
 import { Breed } from 'src/breed/entities/breed.entity';
 import { Dogcolor } from 'src/dogcolors/entities/dogcolor.entity';
+import { Dogcategory } from 'src/dogcategory/entities/dogcategory.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Dog, Breed, Dogcolor])],
+  imports: [TypeOrmModule.forFeature([Dog, Breed, Dogcolor, Dogcategory])],
   controllers: [DogController],
   providers: [DogService],
 })
