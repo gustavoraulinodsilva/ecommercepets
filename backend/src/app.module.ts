@@ -12,6 +12,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { LoginGuard } from './login/auth/login.guard';
 import { BreedadoptionModule } from './breedadoption/breedadoption.module';
 import { DogcategoryModule } from './dogcategory/dogcategory.module';
+import { ContactsModule } from './contacts/contacts.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { DogcategoryModule } from './dogcategory/dogcategory.module';
     LoginModule,
     BreedadoptionModule,
     DogcategoryModule,
+    ContactsModule,
   ],
   controllers: [AppController],
   providers: [
