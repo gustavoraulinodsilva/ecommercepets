@@ -14,6 +14,9 @@ import { BreedadoptionModule } from './breedadoption/breedadoption.module';
 import { DogcategoryModule } from './dogcategory/dogcategory.module';
 import { ContactsModule } from './contacts/contacts.module';
 import { NewsletterModule } from './newsletter/newsletter.module';
+import { ProductModule } from './product/product.module';
+import { ProductcategoryModule } from './productcategory/productcategory.module';
+import { ProductcarouselModule } from './productcarousel/productcarousel.module';
 
 @Module({
   imports: [
@@ -38,6 +41,9 @@ import { NewsletterModule } from './newsletter/newsletter.module';
     DogcategoryModule,
     ContactsModule,
     NewsletterModule,
+    ProductModule,
+    ProductcategoryModule,
+    ProductcarouselModule,
   ],
   controllers: [AppController],
   providers: [
