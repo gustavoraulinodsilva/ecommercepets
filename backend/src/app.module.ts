@@ -17,6 +17,7 @@ import { NewsletterModule } from './newsletter/newsletter.module';
 import { ProductModule } from './product/product.module';
 import { ProductcategoryModule } from './productcategory/productcategory.module';
 import { ProductcarouselModule } from './productcarousel/productcarousel.module';
+import { BlogModule } from './blog/blog.module';
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { ProductcarouselModule } from './productcarousel/productcarousel.module'
     ProductModule,
     ProductcategoryModule,
     ProductcarouselModule,
+    BlogModule,
   ],
   controllers: [AppController],
   providers: [
