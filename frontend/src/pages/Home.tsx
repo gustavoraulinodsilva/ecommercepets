@@ -1,6 +1,7 @@
 import React from "react";
 import "../sass/pages/_home.scss";
 import bannerImage from "../assets/images/homebanner.png";
+import GridItems from "../components/GridItems";
 
 const Home: React.FC = () => {
   return (
@@ -33,6 +34,7 @@ const Home: React.FC = () => {
           <img src={bannerImage} alt="banner"/>
         </div>
       </div>
+      <GridItems/>
     </div>
   );
 };

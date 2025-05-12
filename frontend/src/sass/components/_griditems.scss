@@ -1,0 +1,16 @@
+.griditem{
+    position: relative;
+
+    &__section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__content{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+        }
+    }
+}
