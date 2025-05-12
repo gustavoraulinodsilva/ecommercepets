@@ -90,7 +90,20 @@ const Header: React.FC = () => {
                     </a>
                     <div className="dropdown-coin" ref={dropdownRef}>
                         <button className="dropdown-coin__btn" onClick={toggleDropdown}>
-                            <span className="coin">VND</span>
+                            <span className="coin">
+                                <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1199_518)">
+                                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" fill="#D80027"/>
+                                        <path d="M11 7.17392L11.8634 9.83108H14.6573L12.397 11.4733L13.2603 14.1305L11 12.4882L8.73971 14.1305L9.60309 11.4733L7.34277 9.83108H10.1366L11 7.17392Z" fill="#FFDA44"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1199_518">
+                                        <rect width="16" height="16" fill="white" transform="translate(3 3)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                VND
+                            </span>
                             <div className={`arrow ${isDropdownOpen ? 'rotate' : ''}`}>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M15 11L12 14L9 11" stroke="#002A48" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -99,9 +112,48 @@ const Header: React.FC = () => {
                         </button>
                         <div className={`dropdown-coin__content ${isDropdownOpen ? 'active' : ''}`}>
                             <ul className="dropdown-coin__list">
-                                <li className="dropdown-coin__item">VND</li>
-                                <li className="dropdown-coin__item">BRL</li>
-                                <li className="dropdown-coin__item">USD</li>
+                                <li className="dropdown-coin__item">
+                                    <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1199_518)">
+                                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" fill="#D80027"/>
+                                        <path d="M11 7.17392L11.8634 9.83108H14.6573L12.397 11.4733L13.2603 14.1305L11 12.4882L8.73971 14.1305L9.60309 11.4733L7.34277 9.83108H10.1366L11 7.17392Z" fill="#FFDA44"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1199_518">
+                                        <rect width="16" height="16" fill="white" transform="translate(3 3)"/>
+                                        </clipPath>
+                                    </defs>
+                                    </svg>
+                                    VND
+                                </li>
+                                <li className="dropdown-coin__item">
+                                    <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1199_518)">
+                                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" fill="#D80027"/>
+                                        <path d="M11 7.17392L11.8634 9.83108H14.6573L12.397 11.4733L13.2603 14.1305L11 12.4882L8.73971 14.1305L9.60309 11.4733L7.34277 9.83108H10.1366L11 7.17392Z" fill="#FFDA44"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1199_518">
+                                        <rect width="16" height="16" fill="white" transform="translate(3 3)"/>
+                                        </clipPath>
+                                    </defs>
+                                    </svg>
+                                    BRL
+                                </li>
+                                <li className="dropdown-coin__item">
+                                    <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1199_518)">
+                                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" fill="#D80027"/>
+                                        <path d="M11 7.17392L11.8634 9.83108H14.6573L12.397 11.4733L13.2603 14.1305L11 12.4882L8.73971 14.1305L9.60309 11.4733L7.34277 9.83108H10.1366L11 7.17392Z" fill="#FFDA44"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1199_518">
+                                        <rect width="16" height="16" fill="white" transform="translate(3 3)"/>
+                                        </clipPath>
+                                    </defs>
+                                    </svg>
+                                    USD
+                                </li>
                             </ul>
                         </div>
                     </div>
