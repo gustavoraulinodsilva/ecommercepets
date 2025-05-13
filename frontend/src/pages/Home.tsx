@@ -1,7 +1,10 @@
 import React from "react";
 import "../sass/pages/_home.scss";
 import bannerImage from "../assets/images/homebanner.png";
+import dogBannerOne from "../assets/images/dogbannerone.png";
+import dogBannerTwo from "../assets/images/dogbannertwo.png";
 import GridItems from "../components/GridItems";
+import AdoptionBanner from "../components/AdoptionBanner";
 
 const Home: React.FC = () => {
   return (
@@ -35,6 +38,9 @@ const Home: React.FC = () => {
         </div>
       </div>
       <GridItems/>
+      <AdoptionBanner variant="friend" image={dogBannerOne} title="One More Friend" subtitle="Thousands More Fun!" description="Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!" />
+      <GridItems/>
+      <AdoptionBanner variant="paw" image={dogBannerTwo} title="Adoption" subtitle="We Need Help. So Do They." description="Adopt a pet and give it a home, it will be love you back unconditionally." />
     </div>
   );
 };
