@@ -22,7 +22,7 @@ const GridItems: React.FC = () => {
                     </a>
                 </div>
                 <div className="griditem__section__grid">
-                    <Link to="/dog/pomeranian-white" className="griditem__section__grid__item">
+                    <Link to="/dog/pomeranian-white" className="griditem__section__grid-item">
                         <div className="image">
                             <img src={dogImage} alt="dog"/>
                         </div>
@@ -37,7 +37,7 @@ const GridItems: React.FC = () => {
                             <p><strong>7.900.000 VND</strong></p>
                         </div>
                     </Link>
-                    <Link to="/dog/pomeranian-white" className="griditem__section__grid__item">
+                    <Link to="/dog/pomeranian-white" className="griditem__section__grid-item">
                         <div className="image">
                             <img src={dogImage} alt="dog"/>
                         </div>
@@ -52,7 +52,7 @@ const GridItems: React.FC = () => {
                             <p><strong>7.900.000 VND</strong></p>
                         </div>
                     </Link>
-                    <Link to="/dog/pomeranian-white" className="griditem__section__grid__item">
+                    <Link to="/dog/pomeranian-white" className="griditem__section__grid-item">
                         <div className="image">
                             <img src={dogImage} alt="dog"/>
                         </div>
@@ -67,7 +67,7 @@ const GridItems: React.FC = () => {
                             <p><strong>7.900.000 VND</strong></p>
                         </div>
                     </Link>
-                    <Link to="/dog/pomeranian-white" className="griditem__section__grid__item">
+                    <Link to="/dog/pomeranian-white" className="griditem__section__grid-item">
                         <div className="image">
                             <img src={dogImage} alt="dog"/>
                         </div>
@@ -82,7 +82,7 @@ const GridItems: React.FC = () => {
                             <p><strong>7.900.000 VND</strong></p>
                         </div>
                     </Link>
-                    <Link to="/dog/pomeranian-white" className="griditem__section__grid__item">
+                    <Link to="/dog/pomeranian-white" className="griditem__section__grid-item">
                         <div className="image">
                             <img src={dogImage} alt="dog"/>
                         </div>
@@ -97,7 +97,7 @@ const GridItems: React.FC = () => {
                             <p><strong>7.900.000 VND</strong></p>
                         </div>
                     </Link>
-                    <Link to="/dog/pomeranian-white" className="griditem__section__grid__item">
+                    <Link to="/dog/pomeranian-white" className="griditem__section__grid-item">
                         <div className="image">
                             <img src={dogImage} alt="dog"/>
                         </div>
@@ -112,7 +112,7 @@ const GridItems: React.FC = () => {
                             <p><strong>7.900.000 VND</strong></p>
                         </div>
                     </Link>
-                    <Link to="/dog/pomeranian-white" className="griditem__section__grid__item">
+                    <Link to="/dog/pomeranian-white" className="griditem__section__grid-item">
                         <div className="image">
                             <img src={dogImage} alt="dog"/>
                         </div>
@@ -127,7 +127,7 @@ const GridItems: React.FC = () => {
                             <p><strong>7.900.000 VND</strong></p>
                         </div>
                     </Link>
-                    <Link to="/dog/pomeranian-white" className="griditem__section__grid__item">
+                    <Link to="/dog/pomeranian-white" className="griditem__section__grid-item">
                         <div className="image">
                             <img src={dogImage} alt="dog"/>
                         </div>
