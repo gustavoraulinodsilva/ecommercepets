@@ -1,0 +1,142 @@
+.griditem {
+    position: relative;
+    padding: 4rem 10rem;
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        
+        &__content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 3rem;
+
+            &-texts {
+                .question {
+                    font-weight: 500;
+                    font-size: 1.4rem;
+                    line-height: 2rem;
+                    color: #667479;
+                    margin-bottom: 0.5rem;
+                }
+
+                .title {
+                    font-weight: 700;
+                    font-size: 2.4rem;
+                    line-height: 3.6rem;
+                    color: #003459;
+                }
+            }
+
+            &-btn {
+                border: 1.5px solid #003459;
+                border-radius: 5.7rem;
+                padding: 1rem 2.4rem;
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+                font-weight: 500;
+                font-size: 1.4rem;
+                line-height: 2rem;
+                color: #003459;
+                text-decoration: none;
+                transition: .3s all ease-in-out;
+
+                svg {
+                    margin-left: 0.4rem;
+                }
+
+                &:hover {
+                    background: #003459;
+                    color: #fff;
+                    transform: translateY(-2px);
+                    
+                    svg path {
+                        stroke: #fff;
+                    }
+                }
+            }
+        }
+
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            width: 100%;
+
+            &-item {
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                background-color: #fff;
+                border-radius: 1.2rem;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+                overflow: hidden;
+                transition: all .3s ease-in-out;
+                text-decoration: none;
+                color: inherit;
+
+                .image {
+                    width: 100%;
+                    height: 220px;
+                    overflow: hidden;
+                    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.3s ease;
+                    }
+                }
+
+                .name {
+                    display: flex;
+                    align-items: center;
+                    padding: 1.6rem 1.6rem 0.8rem;
+                    
+                    p {
+                        font-weight: 700;
+                        font-size: 1.6rem;
+                        color: #00171F;
+                    }
+                }
+
+                .info {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0 1.6rem 0.8rem;
+                    
+                    p {
+                        font-size: 1.2rem;
+                        color: #667479;
+                        
+                        strong {
+                            color: #00171F;
+                        }
+                    }
+                }
+
+                .price {
+                    padding: 0 1.6rem 1.6rem;
+                    
+                    p {
+                        font-weight: 700;
+                        font-size: 1.4rem;
+                        color: #003459;
+                    }
+                }
+
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+                    
+                    .image img {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+    }
+}
